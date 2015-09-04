@@ -1,7 +1,7 @@
 package CountJava;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -55,8 +55,8 @@ public class CountJava {
 				list.add(i+1+": "+files.get(i).getName()+ " Amount of lines: "+count);
 				fileScanner.close();
 			}
-		} catch (FileNotFoundException  e1) {
-			System.out.println("Can not read file, check path.");
+		} catch (IOException e1) {
+			System.out.println("Error, make sure path is correct.");
 		}
 		return list;
 	}

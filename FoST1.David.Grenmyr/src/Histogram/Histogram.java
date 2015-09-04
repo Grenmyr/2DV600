@@ -1,7 +1,7 @@
 package Histogram;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Arrays;
@@ -99,8 +99,8 @@ public class Histogram {
 			    }
 			}
 			fileScanner.close();
-		} catch (FileNotFoundException  e1) {
-			System.out.println("Can not read file, check path.");
+		} catch (IOException e1) {
+			System.out.println("Error, make sure path is correct.");
 		}
 			return linkedList;
 	}

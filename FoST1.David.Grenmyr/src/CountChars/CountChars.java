@@ -1,7 +1,7 @@
 package CountChars;
 
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CountChars {
@@ -57,8 +57,8 @@ public class CountChars {
 			System.out.println("Whitespace Characters : " + whitespaceCharacters);
 			System.out.println("other Characters : " + otherCharacters);
 			
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
+		} catch (IOException e1) {
+			System.out.println("Error, make sure path is correct.");
 		}
 	}
 
