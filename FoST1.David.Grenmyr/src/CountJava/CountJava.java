@@ -23,7 +23,7 @@ public class CountJava {
 		try{
 			new CountJava(new File(args[0]));
 		}catch(Exception e){
-			System.out.println("Uknown error");	
+			System.out.println("please add string path.");	
 		}
 	}
 	

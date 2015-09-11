@@ -17,9 +17,10 @@ public class Histogram {
 			allInts = findInts(_path);			
 			rangeArr = createRangeArr();	
 			
-			
+			printIntsInInterval();
 			String [] viewArray = mashData(allInts,rangeArr);	
 			print(viewArray);
+			
 			printPartial(rangeArr,allInts,1);
 	}
 	
@@ -28,7 +29,7 @@ public class Histogram {
 			new Histogram(args[0]);
 			}
 		catch(Exception e){		
-			System.out.println("Very lazy error handling.");
+			System.out.println("Please add string as argument");
 		}
 	}
 	
@@ -45,23 +46,31 @@ public class Histogram {
 	
 	public void printPartial( int[][] rangeArr,  LinkedList<Integer> allInts,int element){
 		int frequenzy = getIntervalFrequency(element);
-		
-		System.out.println(Arrays.toString(rangeArr[element])+" "+frequenzy);
+		System.out.println("Integers in range: "+Arrays.toString(rangeArr[element])+" "+frequenzy);
 	}	
 	
 	public void print (String [] viewArray){
-		System.out.println("Number of Integers in interval: " + allInts.size());
+		System.out.println("Total amount of Integers in interval: ");
 		for(int n = 0; n < viewArray.length; n++) {				
 			System.out.println(viewArray[n]);
 		}
-
+	}
+	
+	public void printIntsInInterval(){
+		int amount = 0;
+		for (int i=0; i < allInts.size(); i++){
+			if(allInts.get(i) > 0 && allInts.get(i) < 200){
+				amount +=1;
+			}
+		}
+		System.out.println("Amount of Ints in interval is: "+amount);
 	}
 	
 	public String[] mashData (LinkedList<Integer> allInts, int[][] rangeArr){
 		String [] viewArr = new String [rangeArr.length];
 		
 		for(int i = 0; i < rangeArr.length; i++) {
-			viewArr[i] = +rangeArr[i][0]+"-"+rangeArr[i][1]+" ";
+			viewArr[i] = +rangeArr[i][0]+"-"+rangeArr[i][1]+"\t";
 			viewArr[i] += getIntervalFrequency(i);
 		}
 		return viewArr;

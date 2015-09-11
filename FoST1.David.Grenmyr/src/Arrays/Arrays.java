@@ -1,6 +1,5 @@
 package Arrays;
 
-import java.util.ArrayList;
 public class Arrays {
 
 	public Arrays() {
@@ -35,17 +34,26 @@ public class Arrays {
 	}
 	
 	public static boolean hasSubsequence(int[] arr, int[] sub){
-	    ArrayList<Integer> arrList = new ArrayList<Integer>();
-	    ArrayList<Integer > subList = new ArrayList<Integer >();
-	    
-	    for(int i = 0; i < arr.length ; i++){
-	    	arrList.add(arr[i]);
+		if(arr.length < sub.length){
+			throw new IllegalArgumentException();
+		}
+		int amountOfMatches = 0;
+	    for(int i = 0; i < arr.length ; i++){	
+	    	if( arr[i] == sub[0]){
+	    		for(int x = 0; x < sub.length ; x++){
+	    			if(sub[x] == arr[x+i]){
+		    			amountOfMatches+=1;
+		    			if(amountOfMatches == sub.length){
+		    				return amountOfMatches == sub.length;
+		    			}
+	    			}else{
+	    				amountOfMatches = 0;
+	    				break;
+	    			}
+	    		}	    		
+	    	}	    	
 	    }	    
-	    for(int i = 0; i < sub.length ; i++){
-	    	subList.add(sub[i]);
-	    }	    
-	    
-	    return arrList.containsAll(subList);
+	    return false;
 	}
 	
 	

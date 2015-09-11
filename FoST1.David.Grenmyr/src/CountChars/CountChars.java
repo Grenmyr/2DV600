@@ -17,8 +17,12 @@ public class CountChars {
 	}
 	
 	public static void main(String[] args) {
-		String path = "C:\\tempskola\\test.txt";
-		new CountChars(path);
+		try{
+			new CountChars(args[0]);
+		}catch(Exception e){
+			System.out.println("Please add valid string path");
+		}
+		
 	}
 	
 	private void scan(String path){

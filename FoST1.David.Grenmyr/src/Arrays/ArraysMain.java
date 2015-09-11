@@ -14,14 +14,18 @@ public class ArraysMain {
 		System.out.println("Showing my custom reverse method. Reversing array{ 1, 2, 3 } :" +Arrays.toString(Arrays.reverse(  new int [] { 1, 2, 3})));
 		System.out.println("Showing my custom replaceAll method. Replacing Elment with index [2] in { 1, 2, 3} array with int 100 :" +Arrays.toString(Arrays.replaceAll(  new int [] { 1, 2, 3},2,100)));
 		System.out.println("Showing my custom sort method. Sorting int [] by size :" +Arrays.toString(Arrays.sort(  new int [] { 3212, 2222, 3,51})));
-		System.out.println("Showing my custom hasSubsequence method. Return true because { 7,1,7 } is subsequnce of { 8,7,1,7,1111 }  : " +(Arrays.hasSubsequence(  new int [] { 8,7,1,7,1111},new int [] { 7,1,7})));
+		System.out.println("Showing my custom hasSubsequence method. Return true because { 2,3 } is subsequnce of { 1,2,2,3,3} : " +(Arrays.hasSubsequence(  new int [] { 1,2,2,3,3},new int [] { 2,3 })));
 		System.out.println("Showing my custom absDif method. Calculating absolute difference between two arrays { 1,1,1,1} and {-5,1,5,0}  : " +Arrays.toString(Arrays.absDif(  new int [] { 1,1,1,1},new int [] {-5,1,5,0})));
 		
 		// Testing exception if length differ on injected arrays.
 		try{
+			System.out.println("Test hasSubsequeue throw exception if sub is longer then arr");
+			Arrays.hasSubsequence(  new int [] { 1},new int [] { 2,3,4,4 });
 			Arrays.absDif(new int []{2,2,2},new int []{2,2});
 		}catch(IndexOutOfBoundsException e){
 			System.out.println("Both arrays injected need to be same length");
+		}catch(IllegalArgumentException e){
+			System.out.println("Sub array must be shorter then arr array.");
 		}
 	}
 

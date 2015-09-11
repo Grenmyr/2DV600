@@ -28,7 +28,7 @@ public class Point {
 	}
 	
 	@SuppressWarnings("unused")
-	private String isequalTo(Point point2){
+	private String isEqualTo(Point point2){
 		int [] p2Pos = point2.getPosition();	
 		if(Arrays.equals(point, p2Pos)){
 			return "The two points are equal.";
